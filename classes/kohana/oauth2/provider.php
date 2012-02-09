@@ -28,7 +28,10 @@ class Kohana_OAuth2_Provider {
 
 	public function __construct(Request $request)
 	{
-		$this->_config = Kohana::$config->load('oauth2.provider');
+        if (version_compare(Kohana::VERSION, '4.1', '>'))
+            $this->_config = Kohana::$config->load('oauth2.provider');
+        else
+            $this->_config = Kohana::$config->load('oauth2')->provider;
 		$this->_request = $request;
 	}
 

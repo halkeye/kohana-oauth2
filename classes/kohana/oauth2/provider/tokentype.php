@@ -13,7 +13,7 @@ abstract class Kohana_OAuth2_Provider_TokenType {
 
 	public static function factory($request)
 	{
-		if (preg_match('/^([A-Za-z]+) .*/i', $request->headers('Authorization'), $matches))
+		if (preg_match('/^([A-Za-z]+) .*/i', $request->headers('authorization'), $matches))
 		{
 			$class = 'OAuth2_Provider_TokenType_'.$matches[1];
 		}
@@ -25,7 +25,6 @@ abstract class Kohana_OAuth2_Provider_TokenType {
 		 */
 		else if ($request->post('access_token') !== NULL)
 		{
-
 			$class = 'OAuth2_Provider_TokenType_Bearer';
 		}
 		else if ($request->query('access_token') !== NULL)

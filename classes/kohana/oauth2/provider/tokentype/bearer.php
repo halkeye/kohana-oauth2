@@ -49,7 +49,7 @@ abstract class Kohana_OAuth2_Provider_TokenType_Bearer extends OAuth2_Provider_T
 
 	protected function _find_token_string()
 	{
-		$authorization_header = $this->_request->headers('Authorization');
+		$authorization_header = $this->_request->headers('authorization');
 
 		$header = preg_match('/^Bearer (.*)/i', $authorization_header, $matches);
 

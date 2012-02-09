@@ -13,7 +13,7 @@ abstract class Kohana_OAuth2_Provider_Authorization {
 
 	public static function factory($request)
 	{
-		if (preg_match('/^([A-Za-z]+) .*/i', $request->headers('Authorization'), $matches))
+		if (preg_match('/^([A-Za-z]+) .*/i', $request->headers('authorization'), $matches))
 		{
 			$class = 'OAuth2_Provider_Authorization_'.$matches[1];
 		}
